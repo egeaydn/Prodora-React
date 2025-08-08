@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FaSearch, FaUser, FaHeart, FaShoppingBag } from 'react-icons/fa';
 import './Navbar.css';
 
@@ -18,10 +19,10 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-menu">
-          <a href="#" className="menu-item">Ana Sayfa</a>
-          <a href="#" className="menu-item">Kategoriler</a>
-          <a href="#" className="menu-item">Yeni Gelenler</a>
-          <a href="#" className="menu-item">İndirimler</a>
+          <Link to="/" className="menu-item">Ana Sayfa</Link>
+          <Link to="/categories" className="menu-item">Kategoriler</Link>
+          <Link to="/new-arrivals" className="menu-item">Yeni Gelenler</Link>
+          <Link to="/discounts" className="menu-item">İndirimler</Link>
         </div>
 
         <div className="navbar-actions">

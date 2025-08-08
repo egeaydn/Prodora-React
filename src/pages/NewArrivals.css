@@ -1,0 +1,16 @@
+.new-arrivals-page {
+  padding: 2rem;
+  background: linear-gradient(135deg, #f0fdf4 60%, #bbf7d0 100%);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  min-height: 60vh;
+}
+.new-arrivals-page h2 {
+  color: #059669;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+.new-arrivals-page p {
+  color: #065f46;
+  font-size: 1.1rem;
+}

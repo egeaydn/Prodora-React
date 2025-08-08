@@ -1,0 +1,16 @@
+.discounts-page {
+  padding: 2rem;
+  background: linear-gradient(135deg, #fef9c3 60%, #fde68a 100%);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  min-height: 60vh;
+}
+.discounts-page h2 {
+  color: #ca8a04;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+.discounts-page p {
+  color: #92400e;
+  font-size: 1.1rem;
+}
