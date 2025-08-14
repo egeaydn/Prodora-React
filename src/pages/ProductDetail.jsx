@@ -4,7 +4,7 @@ import { FaArrowLeft, FaHeart, FaShoppingCart, FaStar, FaTruck, FaShieldAlt, FaU
 import Footer from '../components/Footer';
 import './ProductDetail.css';
 
-const ProductDetail = ({ products, onAddToFavorites, favorites }) => {
+const ProductDetail = ({ products, onAddToFavorites, favorites, onAddToCart }) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState(0);
@@ -23,19 +23,26 @@ const ProductDetail = ({ products, onAddToFavorites, favorites }) => {
   ];
 
   return (
-    <div className="product-detail-page">
-      <div className="product-detail">
-        <button className="back-button" onClick={() => navigate(-1)}>
-          <FaArrowLeft /> Geri Dön
-        </button>
-        
-        <div className="product-detail-container">
-          <div className="product-detail-gallery">
-            <div className="main-image">
-              <img src={productImages[selectedImage]} alt={product.name} />
-            </div>
-            <div className="thumbnail-list">
-              {productImages.map((image, index) => (
+        <div className="product-detail-info">
+          <h2>{product.name}</h2>
+          <p className="product-detail-price">{product.price} TL</p>
+          <p className="product-detail-desc">{product.description}</p>
+          <div className="product-detail-actions">
+            <button 
+              className={`favorite-detail-button${favorites.includes(product.id) ? ' active' : ''}`}
+              onClick={() => onAddToFavorites(product.id)}
+            >
+              <FaHeart /> Favorilere Ekle
+            </button>
+            <button 
+              className="cart-detail-button"
+              onClick={() => onAddToCart(product)}
+            >
+              <FaShoppingCart /> Sepete Ekle
+            </button>
+          </div>
+          {/* ...diğer detaylar... */}
+          <div className="product-detail-extra">
                 <div 
                   key={index}
                   className={`thumbnail ${selectedImage === index ? 'active' : ''}`}
