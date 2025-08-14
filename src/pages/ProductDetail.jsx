@@ -23,9 +23,38 @@ const ProductDetail = ({ products, onAddToFavorites, favorites, onAddToCart }) =
   ];
 
   return (
+    <div className="product-detail-page">
+      <button className="back-button" onClick={() => navigate(-1)}>
+        <FaArrowLeft /> Geri Dön
+      </button>
+      <div className="product-detail-container">
+        <div className="product-detail-gallery">
+          <div className="main-image">
+            <img src={productImages[selectedImage]} alt={product.name} />
+          </div>
+          <div className="thumbnail-list">
+            {productImages.map((image, index) => (
+              <div 
+                key={index}
+                className={`thumbnail ${selectedImage === index ? 'active' : ''}`}
+                onClick={() => setSelectedImage(index)}
+              >
+                <img src={image} alt={`${product.name} ${index + 1}`} />
+              </div>
+            ))}
+          </div>
+        </div>
         <div className="product-detail-info">
           <h2>{product.name}</h2>
-          <p className="product-detail-price">{product.price} TL</p>
+          <div className="product-rating">
+            <div className="stars">
+              {[1, 2, 3, 4, 5].map((star) => (
+                <FaStar key={star} className="star-icon" />
+              ))}
+            </div>
+            <span className="rating-count">(128 değerlendirme)</span>
+          </div>
+          <p className="product-detail-price">{product.price.toLocaleString('tr-TR')} TL</p>
           <p className="product-detail-desc">{product.description}</p>
           <div className="product-detail-actions">
             <button 
@@ -41,71 +70,27 @@ const ProductDetail = ({ products, onAddToFavorites, favorites, onAddToCart }) =
               <FaShoppingCart /> Sepete Ekle
             </button>
           </div>
-          {/* ...diğer detaylar... */}
-          <div className="product-detail-extra">
-                <div 
-                  key={index}
-                  className={`thumbnail ${selectedImage === index ? 'active' : ''}`}
-                  onClick={() => setSelectedImage(index)}
-                >
-                  <img src={image} alt={`${product.name} ${index + 1}`} />
-                </div>
-              ))}
-            </div>
+          <div className="product-features">
+            <h3>Özellikler</h3>
+            <ul>
+              <li>Yüksek kaliteli malzeme</li>
+              <li>Garanti süresi: 2 yıl</li>
+              <li>Ücretsiz kargo</li>
+              <li>7/24 destek</li>
+            </ul>
           </div>
-          
-          <div className="product-detail-info">
-            <div className="product-header">
-              <h1>{product.name}</h1>
-              <button 
-                className={`favorite-button ${favorites.includes(product.id) ? 'active' : ''}`}
-                onClick={() => onAddToFavorites(product.id)}
-              >
-                <FaHeart />
-              </button>
+          <div className="product-benefits">
+            <div className="benefit-item">
+              <FaTruck />
+              <span>Ücretsiz Kargo</span>
             </div>
-
-            <div className="product-rating">
-              <div className="stars">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <FaStar key={star} className="star-icon" />
-                ))}
-              </div>
-              <span className="rating-count">(128 değerlendirme)</span>
+            <div className="benefit-item">
+              <FaShieldAlt />
+              <span>Güvenli Alışveriş</span>
             </div>
-
-            <p className="price">{product.price.toLocaleString('tr-TR')} TL</p>
-            <p className="description">{product.description}</p>
-            
-            <div className="product-actions">
-              <button className="add-to-cart-button">
-                <FaShoppingCart /> Sepete Ekle
-              </button>
-            </div>
-
-            <div className="product-features">
-              <h3>Özellikler</h3>
-              <ul>
-                <li>Yüksek kaliteli malzeme</li>
-                <li>Garanti süresi: 2 yıl</li>
-                <li>Ücretsiz kargo</li>
-                <li>7/24 destek</li>
-              </ul>
-            </div>
-
-            <div className="product-benefits">
-              <div className="benefit-item">
-                <FaTruck />
-                <span>Ücretsiz Kargo</span>
-              </div>
-              <div className="benefit-item">
-                <FaShieldAlt />
-                <span>Güvenli Alışveriş</span>
-              </div>
-              <div className="benefit-item">
-                <FaUndo />
-                <span>Kolay İade</span>
-              </div>
+            <div className="benefit-item">
+              <FaUndo />
+              <span>Kolay İade</span>
             </div>
           </div>
         </div>
