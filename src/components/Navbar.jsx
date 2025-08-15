@@ -30,10 +30,10 @@ const Navbar = () => {
             <FaHeart />
             <span className="badge">0</span>
           </button>
-          <button className="action-button">
+          <Link to="/cart" className="action-button" style={{display:'flex',alignItems:'center',gap:'4px'}}>
             <FaShoppingBag />
             <span className="badge">0</span>
-          </button>
+          </Link>
           <button className="action-button">
             <FaUser />
           </button>

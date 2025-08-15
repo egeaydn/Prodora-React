@@ -137,11 +137,12 @@
 
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
-  padding: 1rem;
-  max-width: 1200px;
+  padding: 2rem;
+  max-width: 1400px;
   margin: 0 auto;
+  align-items: stretch;
 }
 
 .product-link {
@@ -149,28 +150,13 @@
   color: inherit;
 }
 
-@media (max-width: 768px) {
-  .section-title h2 {
-    font-size: 2rem;
-  }
-
-  .section-title p {
-    font-size: 1rem;
-  }
-
-  .filters {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .search-filter input,
-  .price-filter select,
-  .sort-filter select {
-    width: 100%;
-  }
-
+@media (max-width: 900px) {
   .products-grid {
     grid-template-columns: 1fr;
-    padding: 0.5rem;
+    padding: 1rem;
   }
-} 
+  .product-card {
+    width: 100%;
+    margin: 1rem 0;
+  }
+}

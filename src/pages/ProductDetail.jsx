@@ -60,12 +60,37 @@ const ProductDetail = ({ products, onAddToFavorites, favorites, onAddToCart }) =
             <button 
               className={`favorite-detail-button${favorites.includes(product.id) ? ' active' : ''}`}
               onClick={() => onAddToFavorites(product.id)}
+              style={{
+                padding: '0.7rem 1.4rem',
+                background: 'linear-gradient(90deg, #6366f1 0%, #818cf8 100%)',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '24px',
+                fontSize: '1rem',
+                fontWeight: 600,
+                cursor: 'pointer',
+                marginRight: '1rem',
+                boxShadow: '0 2px 8px rgba(79,70,229,0.08)',
+                transition: 'background 0.2s, box-shadow 0.2s'
+              }}
             >
               <FaHeart /> Favorilere Ekle
             </button>
             <button 
               className="cart-detail-button"
               onClick={() => onAddToCart(product)}
+              style={{
+                padding: '0.7rem 1.4rem',
+                background: 'linear-gradient(90deg, #818cf8 0%, #6366f1 100%)',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '24px',
+                fontSize: '1rem',
+                fontWeight: 600,
+                cursor: 'pointer',
+                boxShadow: '0 2px 8px rgba(79,70,229,0.08)',
+                transition: 'background 0.2s, box-shadow 0.2s'
+              }}
             >
               <FaShoppingCart /> Sepete Ekle
             </button>
